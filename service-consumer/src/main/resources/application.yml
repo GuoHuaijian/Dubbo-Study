@@ -1,0 +1,28 @@
+# Spring boot application
+spring:
+  application:
+    name: service-consumer
+server:
+  port: 9002
+
+# Services Versions
+services:
+  versions:
+    v1: 1.0.0
+
+# Dubbo Config properties
+dubbo:
+  ## ApplicationConfig Bean
+  application:
+    id: service-consumer
+    name: service-consumer
+  ## ProtocolConfig Bean
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 30882
+    status: server
+  ## RegistryConfig Bean
+  registry:
+    id: zookeeper
+    address: zookeeper://127.0.0.1:2181

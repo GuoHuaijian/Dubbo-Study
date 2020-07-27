@@ -1,0 +1,36 @@
+# Spring boot application
+spring:
+  application:
+    name: service-provider
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 9001
+
+# Services Versions
+services:
+  versions:
+    v1: 1.0.0
+
+# Dubbo Config properties
+dubbo:
+  ## Base packages to scan Dubbo Component：@com.alibaba.dubbo.config.annotation.Service
+  scan:
+    base-packages: com.lucky.service.provider.service
+  ## ApplicationConfig Bean
+  application:
+    id: service-provider
+    name: service-provider
+    qos-port: 22223
+    qos-enable: true
+  ## ProtocolConfig Bean
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20882
+    status: server
+  ## RegistryConfig Bean
+  registry:
+    id: zookeeper
+    address: zookeeper://127.0.0.1:2181
